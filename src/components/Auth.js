@@ -13,7 +13,7 @@ export const Auth = (props) => {
             cookies.set('auth-token', result.user.refreshToken);
             // we set setIsAuth = true here because I don't need 
             // to refresh in order to go from the starting page to the other one
-            setIsAuth = true;
+            setIsAuth(true);
         }
         catch (error) {
             console.log(error);

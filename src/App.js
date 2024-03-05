@@ -5,6 +5,8 @@ import { Auth } from './components/Auth.js';
 // we use cookies to know if the user is logged in
 import Coockies from 'universal-cookie';
 import Chat from './components/Chat.js';
+import { signOut } from 'firebase/auth';
+import { auth } from './config/firebase-config.js';
 const cookies = new Coockies();
 
 function App() {
@@ -12,6 +14,13 @@ function App() {
   const [room, setRoom] = useState("");
 
   const roomInputRef = useRef(null);
+
+  const signUserOut = async () => {
+    await signOut(auth);
+    cookies.remove('auth-token');
+    setIsAuth(false);
+    setRoom(null);
+  };
 
   if (!isAuth) {
     return <div>
@@ -33,6 +42,9 @@ function App() {
           </button>
         </div>
       )}
+      <div className='sign-out'>
+        <button onClick={signUserOut}>Sign Out</button>
+      </div>
     </div>
   );
 }

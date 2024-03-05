@@ -4,6 +4,7 @@ import { Auth } from './components/Auth.js';
 
 // we use cookies to know if the user is logged in
 import Coockies from 'universal-cookie';
+import Chat from './components/Chat.js';
 const cookies = new Coockies();
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
   return (
     <div>
       {room ? (
-        <div>Chat</div> // UI
+        <Chat room={room} />
       ) : (
         <div className='room'>
           <label>Enter Room Name:</label>

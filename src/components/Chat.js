@@ -15,7 +15,10 @@ export default function Chat(props) {
      * This code gets the messages only from the correct room.
      */
     useEffect(() => {
-        const queryMessages = query(messagesRef, where("room", '==', room));
+        const queryMessages = query(
+            messagesRef,
+            where("room", '==', room),
+            orderBy('createdAt'));
         const unsubscribe = onSnapshot(queryMessages, (snapshot) => {
             let messages= [];
             snapshot.forEach(doc => {

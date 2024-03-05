@@ -62,7 +62,7 @@ export default function Chat(props) {
                 {messages.map(message => 
                     <div className="message" key={message.id}>
                         <span className="user">{message.user}</span>
-                        {message.text}
+                         - {message.text}
                     </div>
                 )}
             </div>

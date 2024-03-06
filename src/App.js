@@ -1,5 +1,4 @@
 import { useState, useRef } from 'react';
-import './App.css';
 import { Auth } from './components/Auth.js';
 
 // we use cookies to know if the user is logged in

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { addDoc, collection, onSnapshot, orderBy, query, serverTimestamp, where } from 'firebase/firestore';
 import { auth, db } from "../config/firebase-config";
+import './Chat.css';
 
 export default function Chat(props) {
     const {room} = props;
@@ -54,7 +55,7 @@ export default function Chat(props) {
     };
 
     return (
-        <div className="chat-app">
+        /*<div className="chat-app">
             <div className="header">
                 <h1>Welcome to: {room}</h1>
             </div>
@@ -78,6 +79,40 @@ export default function Chat(props) {
                     Send
                 </button>
             </form>
+        </div>*/
+        <div class="container">
+            <div class="body justify-content-between">
+                <div class=" box-2 d-flex flex-column h-100">
+                    <div class="mt-5">
+                        <p class="mb-1 h-1">Welcome to: {room}</p>
+                        <div class="messages">
+                            {messages.map(message => 
+                                <p class="text-muted mb-2" key={message.id}>{message.user} <br /> <span class="ms-4 text">{message.text}</span></p>
+                            )}
+                        </div>
+                    </div>
+                    {/* <div class="mt-auto">
+                        <p class="footer text-muted mb-0 mt-md-0 mt-4"><span class="me-1">Made with</span>
+                            <span class="fab fa-github"></span>
+                        </p>
+                    </div> */}
+                </div>
+                <form class="w-100" onSubmit={handleSubmit}>
+                    <div class="row mt-2 mb-2 ms-4 me-4">
+                        <input
+                            class="col"
+                            placeholder="Type your message here..."
+                            onChange={e => setNewMessage(e.target.value)}
+                            value={newMessage} />
+                        <button
+                            class="col-auto btn"
+                            type="submit">
+                            Send
+                        </button>
+                    </div>
+                </form>
+                <span class="fas fa-times"></span>
+            </div>
         </div>
     );
 }

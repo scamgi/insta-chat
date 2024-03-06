@@ -40,10 +40,10 @@ export const Auth = (props) => {
                         <div class="d-flex flex-column ">
                             <p class="text-muted mb-2">Continue with...</p>
                             <div class="d-flex align-items-center">
-                                <a href="#" class="box me-2">
+                                <button onClick={signInWithGoogle} class="box me-2">
                                     <span class="fab fa-google mb-2"></span>
                                     <p class="mb-0">Google</p>
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>

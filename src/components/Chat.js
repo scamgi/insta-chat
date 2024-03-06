@@ -84,7 +84,7 @@ export default function Chat(props) {
             <div class="body justify-content-between">
                 <div class=" box-2 d-flex flex-column h-100">
                     <div class="mt-5">
-                        <p class="mb-1 h-1">Welcome to: {room}</p>
+                        <p class="mb-1 h-1">{room.toUpperCase()}</p>
                         <div class="messages">
                             {messages.map(message => 
                                 <p class="text-muted mb-2" key={message.id}>{message.user} <br /> <span class="ms-4 text">{message.text}</span></p>
